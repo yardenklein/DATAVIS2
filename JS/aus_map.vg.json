@@ -1,0 +1,165 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 420,
+  "params": [
+    {
+      "name": "category_selector",
+      "value": "Military Expenditure",  
+      "bind": {
+        "input": "select",
+        "options": ["Military Expenditure", "Healthcare", "Education", "Welfare", "Mental Health"],
+        "name": "Select Category: "
+      }
+    }
+  ],
+  "data": {
+    "url": "data/STE_2021_AUST_GDA2020.topojson.txt",
+    "format": {"type": "topojson", "feature": "aus_state_map"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STE_CODE21",
+      "from": {
+        "data": {
+          "url": "data/Australian_State_Expenditure_2009_with_Military.csv",  
+          "format": {"type": "csv"}
+        },
+        "key": "Code",
+        "fields": ["Military Expenditure", "Healthcare", "Education", "Welfare", "Mental Health"]
+      }
+    },
+    {
+      "fold": ["Military Expenditure", "Healthcare", "Education", "Welfare", "Mental Health"],
+      "as": ["category", "expenditure"]
+    },
+    {
+      "filter": "datum.category == category_selector"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "title": "Expenditure (Billions AUD)",
+          "field": "expenditure",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": {
+              "expr": "category_selector === 'Welfare' ? [0, 10] : category_selector === 'Mental Health' ? [0, 2] : [0, 20]"  
+            },
+            "range": ["#ffffcc", "#d9f0a3", "#addd8e", "#78c679", "#31a354", "#006837"]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "direction": "horizontal",
+            "titleFont": "sulphur",
+            "labelFont": "Arial",
+            "labelFontSize": 12,
+            "titleFontSize": 14,
+            "titlePadding": 5,
+            "strokeColor": "black",
+            "fillColor": "white",
+            "padding": 5,
+            "gradientLength": 250,
+            "gradientThickness": 15
+          }
+        },
+        "tooltip": [
+          {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
+          {"field": "expenditure", "type": "quantitative", "title": "Expenditure (Billions AUD)", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -200,
+        "dy": -150,
+        "fontSize": 12,
+        "color": "black"
+      },
+      "encoding": {
+        "text": {
+          "value": "New South Wales has the single highest"
+        },
+        "x": {"value": 950},
+        "y": {"value": 400}
+      }
+    }, {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -200,
+        "dy": -150,
+        "fontSize": 12,
+        "color": "black"
+      },
+      "encoding": {
+        "text": {
+          "value": "military expenditures in Australia."
+        },
+        "x": {"value": 950},
+        "y": {"value": 410}
+      }
+    },{
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -200,
+        "dy": -150,
+        "fontSize": 12,
+        "color": "black"
+      },
+      "encoding": {
+        "text": {
+          "value": "Mental Health is the lowest category of spending."
+        },
+        "x": {"value": 220},
+        "y": {"value": 410}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 0,
+        "dy": -200,
+        "fontSize": 12,
+        "color": "black"
+      },
+      "encoding": {
+        "text": {
+          "value": "The Northern Territory shows the lowest overall expenditure."
+        },
+        "x": {"value": 100},
+        "y": {"value": 230}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 12,
+        "color": "black"
+      },
+      "encoding": {
+        "text": {
+          "value": "Military Expenditure remains the highest category of spending."
+        },
+        "x": {"value": 630},
+        "y": {"value": 30}
+      }
+    }
+  ],
+  "config": {
+    "font": "sulphur",
+    "background": "#f8f8f8",
+    "style": {"cell": {"stroke": "transparent"}}
+  }
+}

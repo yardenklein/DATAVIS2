@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Global Peace Index</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+</head>
+
+<body id="top">
+
+  <div class="page">
+
+    <!-- pure grid group -->
+    <h1>A study on Australian and World Peace, 2009-2022</h1>
+    <p class="subtitle">A visualisation created by <b>Jordan Klein</b></p>
+    <hr>
+    <!-- end pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description-left">
+          <p>In 2009, Australia ranked as the 10th most peaceful country in the world according to the <b>Global Peace Index (GPI)</b>, which measures peace through various factors, including <b>levels of violence, conflict, and militarization</b>. This visualization explores the contributing factors behind Australia's peaceful environment and how they compare globally.</p>
+          
+          <p>We start by analyzing Australia's domestic expenditure across key categories like <b>healthcare, education, welfare, and military</b>. This provides insight into how government spending might have influenced peace within the country. Afterward, we expand our view to compare peace levels and military expenditure globally, exploring the broader relationship between peace and defense spending.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="description-right">
+          <p> 🖰 <b>Select a box to scroll to that section.</b></p>
+          <a href="#AnalyseAustralia"><div class="box"><font style="color: black">Australian Peace Analysis</font></div></a><br>
+          <a href="#GeoLocate"><div class="box"><font style="color: black">Global Peace Analysis</font></div></a><br>
+          <a href="#militaryexp"><div class="box"><font style="color: black">Military Expenditure Analysis</font></div></a><br>
+        </div>
+      </div>
+    </div>
+    
+    <!-- pure grid group -->
+
+    <!-- First Section: Analysing Australia -->
+<!-- First Section: Analysing Australia -->
+<div id="AnalyseAustralia">
+  <h2>Analysing Australia</h2>
+  <hr>
+  <div class="pure-g">
+    <div class="pure-u-1">
+      <h3>Australian Expenditure by State, 2009</h3>
+      <div id="vis6" class="vis-container"></div>
+    </div>
+    <div class="pure-u-1">
+      <div class="description description-left" style="display: flex; justify-content: space-between;">
+        <div style="width: 48%; text-align: justify; margin-right: 32px;">
+          <p>This section delves into <b>Australia's domestic expenditure for 2009</b> and how it contributed to the country's peaceful environment. By examining government spending on <b>social welfare, education, healthcare,</b> and <b>environmental sustainability</b>, we can understand the key factors that contributed to <b>Australia's peace and stability</b> in 2009.</p>
+        </div>
+        <div style="width: 48%; text-align: justify; margin-left: 32px;">
+          <p>We focus on 2009 because <b>military expenditure</b> was the highest category of government spending that year, which coincided with <b>Australia's 10th place ranking in the Global Peace Index</b>. This provides a plausible reason to explore the relationship between <b>military spending</b> and peace, both within <b>Australia</b> and globally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    <div>
+      <div>
+        <div id="GeoLocate" class="description description-left">
+          <h2>Australia on the Global Scale</h2>
+        </div>
+        <hr>
+      </div>
+      <div>
+        <h3>Global Peace Indices, 2009-2022</h3>
+        <div id="vis1" class="vis-container"></div>
+      </div>
+      
+    </div>
+    <!-- end pure grid group -->
+    
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+          <p>
+            <b>The map above</b> displays a global view of peace indices from 2009 to 2022. From this map, we observe that regions in Europe, particularly the northern areas, have remained stable. Countries in the Middle East and parts of Africa show lower peace scores consistently. Australia, the United States, and Canada maintain higher stability. The map on the right provides a closer look at specific regions globally.
+    
+            <b>The map to the right</b> shows a zoomed in perspective of each continent.
+          </p>
+          <p>
+            🖰 <i><b>Select a continent</b> below the map to explore how peace levels vary between countries. <b>Use the zoom slider</b> to get a closer view of specific regions.</i> <br>
+            🖰 <i><b>Adjust the year slider</b> to observe changes in peace levels over time, and <b>hover over countries</b> to see each nation's Global Peace Index (GPI).</i>
+          </p>          
+          <p>
+            From both maps, it is <b>clear that geography plays a significant role</b> in influencing peace levels across different regions. While factors like <b>economic stability, quality of life, and political conditions</b> may also contribute, the patterns across continents suggest that geographical location is a key factor. It’s also important to consider that some countries may have incomplete or inconsistent data reporting, which could impact the accuracy of their Global Peace Index scores.
+          </p>          
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <h3>Peace Levels by Continent, 2009-2022</h3>
+        <div id="vis5" class="vis-container"></div>
+        
+        <!-- Year Slider with adjusted margin -->
+        <div id="slider-container" style="margin-bottom: 0px;">
+          <p>Year:</p>
+          <input type="range" id="year-slider2" min="2009" max="2022" step="1" value="2000">
+          <span id="slider-value2">2009</span>
+        </div>
+        
+        <!-- Zoom Slider with adjusted margin -->
+        <div id="slider-container" style="margin-bottom: 10px;">
+          <p>Zoom:</p>
+          <input type="range" id="zoom-slider" min="200" max="700" step="100" value="300">
+          <span id="slider-value3">20</span><span>%</span>
+        </div>
+        
+        <!-- Continent Selector with margin -->
+<div id="slider-container" style="margin-bottom: 60px;">
+  <label for="continent-select" style="margin-right: 10px;">Continent:</label>
+  <select id="continent-select">
+    <option value="[20, 10]">Africa</option>
+    <option value="[73, 30]">Asia</option>
+    <option value="[15, 50]">Europe</option>
+    <option value="[-100, 40]">North America</option>
+    <option value="[125, -15]" selected>Oceania</option>
+    <option value="[-60, -20]">South America</option>
+  </select>
+</div>
+
+        
+      </div>
+    </div>
+    
+ 
+      <div id="militaryexp">
+        <h2>Military Expenditure Comparison</h2>
+        <hr>
+      
+        <!-- Scatterplot spanning the full width -->
+        <div class="pure-g">
+          <div class="pure-u-1">
+            <h3>GPI Vs Military Expenditure, 2009-2022</h3>
+            <div id="vis3" class="vis-container"></div>
+          </div>
+        </div>
+      
+        <div class="pure-g">
+          <!-- Condensed paragraph in left column about Military Expenditure -->
+          <div class="pure-u-1-2">
+            <div class="description description-left">
+              <p>
+                <b>Military expenditure</b> is a crucial factor in understanding both security and peace. While <b style="color:#ff69b4;">Australia</b> spends significantly less on defense compared to global powers like the <b style="color:#1e90ff;">United States</b>, <b style="color:#ffd700;">China</b>, and <b style="color:#ffd700;">Russia</b>, it still plays an important role in global peace. Factors beyond military spending contribute to peace, and this comparison of <b style="color:#ff69b4;">Australia’s</b> budget with top global military spenders helps assess these dynamics, highlighting how countries like <b style="color:#ff69b4;">Australia</b> can maintain high peace rankings despite lower military investments.
+              </p>
+            </div>
+          </div>
+      
+          <!-- Condensed paragraph in right column about the scatterplot -->
+          <div class="pure-u-1-2">
+            <div class="description description-right">
+              <p>
+                <b>The scatter plot</b> above shows the <b>Average Military Expenditure</b> vs the <b>Average GPI</b> from 2009 to 2022. Despite <b style="color:#ff69b4;">Australia's</b> high expenditure relative to many other nations in the region, it maintains a higher <b>GPI</b> compared to countries like <b style="color:#ffd700;">Russia</b> and <b style="color:#ffd700;">China</b>, who pair high military spending with lower peace rankings. This comparison highlights the complex relationship between peace and military investment, where higher spending does not always translate to higher peace rankings.
+              </p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- First visualization with plot on the left and text on the right -->
+        <div class="pure-g">
+          <div class="pure-u-1-2">
+            <h3>Average Military Expenditure by Continent, 2009-2022</h3>
+            <div id="vis4" class="vis-container"></div>
+          </div>
+          <div class="pure-u-1-2">
+            <div class="description description-right">
+              <p>
+                The <b>bar chart</b> illustrates the <b>average military expenditure by continent</b> from 2009 to 2022. As shown, <b style="color:#1e90ff;">North America</b> has the highest military expenditure by a significant margin, reflecting its dominant global military presence, while <b style="color:#ff69b4;">Oceania</b> and <b style="color:#8a2be2;">South America</b> have the lowest. This comparison highlights how different regions prioritize defense spending, with <b style="color:#ffd700;">Asia</b> and <b style="color:#32cd32;">Europe</b> occupying middle ground in terms of their defense budgets.
+              </p>
+              <p>
+                Military spending is often linked to broader geopolitical strategies. For example, countries in <b style="color:#1e90ff;">North America</b> and <b style="color:#32cd32;">Europe</b> maintain higher defense budgets to support both internal and external security strategies. However, as shown in <b style="color:#ff69b4;">Australia's</b> case, <b>higher military spending does not necessarily equate to higher peace rankings</b>. This analysis suggests that while military investment is critical for defense, factors like diplomacy and governance also play a crucial role in a nation's peacefulness.
+              </p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Second visualization with plot on the right and text on the left -->
+        <div class="pure-g">
+          <div class="pure-u-1-2" style="width: 48%; padding-right: 10px;">
+            <div class="description description-left">
+              <p>
+                The <b>line graph</b> presents trends in the <b>Average GPI by continent</b> from 2009 to 2022. Although <b style="color:#1e90ff;">North America</b> demonstrates higher military spending, its peace ranking remains comparable to other continents. This suggests that global peace is shaped by multiple factors, such as <b>social policies, governance,</b> and <b>economic conditions</b>, rather than military expenditure alone. Notably, regions like <b style="color:#ff69b4;">Oceania</b> and <b style="color:#32cd32;">Europe</b> show stability in their GPI rankings despite lower defense budgets, indicating that countries with lower military spending may focus on other areas to foster peace.
+              </p>
+              <!-- User interaction instructions aligned in the left column -->
+              <p>
+                🖰 <i><b>Hover</b> over elements in the <b>line graph</b>, <b>scatter plot</b>, and <b>bar chart</b> to view more details.</i><br>
+                🖰 <i><b>Click</b> a continent in the legend to filter data for that region.</i><br>
+                🖰 <i>Use the <b>scroll wheel</b> to zoom on the <b>scatter plot</b>, and <b>double-click</b> to reset the view.</i>
+              </p>
+            </div>
+          </div>
+          <div class="pure-u-1-2" style="width: 48%;">
+            <h3>Average GPI by Continent, 2009-2022</h3>
+            <div id="vis2" class="vis-container"></div>
+          </div>
+        </div>
+      </div>
+    
+        <!-- Back to top button -->
+        <a href="#top">
+          <div class="box" style="text-align:center; padding:15px; background-color:#FF7F50; color:black; border-radius:10px; box-shadow: 3px 3px 5px rgba(0,0,0,0.3);">
+            <font style="color: black">Back to top</font>
+          </div>
+        </a><br>
+
+
+        <div class="pure-g">
+          <div class="pure-u-1" style="text-align: center;">
+            <h3>Data Sources</h3>
+            <ul style="list-style: none; padding: 0;">
+              <li>
+                <a href="https://www.economicsandpeace.org/global-peace-index/" target="_blank">Institute for Economics and Peace</a>
+              </li>
+              <li>
+                <a href="https://www.abs.gov.au/statistics/economy/government/government-finance-statistics-australia/latest-release" target="_blank">Australian Bureau of Statistics</a>
+              </li>
+              <li>
+                <a href="https://www.sipri.org/databases/milex" target="_blank">Stockholm International Peace Research Institute (SIPRI)</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        
+      </div> <!-- end page -->
+
+      
+      
+      
+
+  <script type="text/javascript">
+    var v1 = "./JS/global_map.json";
+    var v2 = "./JS/line_chart.json";
+    var v3 = "./JS/scatterplot.json";
+    var v4 = "./JS/bar_chart.json";
+    var v5 = "./JS/continental_map.json";
+    var v6 = "./JS/aus_map.vg.json";
+
+
+    // Embed Global Map (vis1)
+    vegaEmbed('#vis1', v1, { "actions": false }).then(function (result) {
+      const view = result.view;
+      const yearSlider = document.getElementById("year-slider2");
+      const zoomSlider = document.getElementById("zoom-slider");
+      const continentSelect = document.getElementById("continent-select");
+      const yearSliderValue = document.getElementById("slider-value2");
+      const zoomSliderValue = document.getElementById("slider-value3");
+
+      // Year slider functionality
+      yearSlider.addEventListener("input", function () {
+        const yearSelection = +this.value;
+        yearSliderValue.textContent = yearSelection;
+        view.signal("Year_selection", yearSelection).runAsync();
+      });
+
+      // Zoom slider functionality
+      zoomSlider.addEventListener("input", function () {
+        const zoomLevel = +this.value;
+        zoomSliderValue.textContent = (zoomLevel - 200) / 500 * 100;
+        view.signal("zoom_level", zoomLevel).runAsync();
+      });
+
+      // Continent select functionality
+      continentSelect.addEventListener("input", function () {
+        const selectedCenter = JSON.parse(this.value);
+        view.signal("center_to", selectedCenter).runAsync();
+      });
+    }).catch(console.error);
+
+    // Embed line chart (vis2)
+    vegaEmbed('#vis2', v2, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/)
+    }).catch(console.error);
+
+    // Embed scatterplot (vis3)
+    vegaEmbed('#vis3', v3, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/)
+    }).catch(console.error);
+
+    // Embed bar chart (vis4)
+    vegaEmbed('#vis4', v4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/)
+    }).catch(console.error);
+
+    // Embed zoomable map (vis5)
+    vegaEmbed("#vis5", v5, { "actions": false }).then((result) => {
+      const view = result.view;
+      const slider = document.getElementById("year-slider2");
+      const sliderValue = document.getElementById("slider-value2");
+      const zoomSlider = document.getElementById("zoom-slider");
+      const zoomValue = document.getElementById("slider-value3");
+      const continent = document.getElementById("continent-select");
+      slider.addEventListener("input", function () {
+        const yearSelection = +this.value;
+        sliderValue.textContent = yearSelection;
+        view.signal("Year_selection", yearSelection).runAsync();
+      });
+      zoomSlider.addEventListener("input", function () {
+        const zoomLevel = +this.value;
+        zoomValue.textContent = (zoomLevel - 200) / 500 * 100;
+        view.signal("zoom_level", zoomLevel).runAsync();
+      });
+      continent.addEventListener("input", function () {
+        const selectedCenter = JSON.parse(this.value);
+        view.signal("center_to", selectedCenter).runAsync();
+      });
+    }).catch(console.error);
+
+    // Embed Australian map (vis6)
+    vegaEmbed('#vis6', v6, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/)
+    }).catch(console.error);
+
+  </script>
+</body>
+
+</html>
+
